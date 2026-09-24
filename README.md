@@ -1,49 +1,58 @@
-# 🏥 Clínica Médica — Projeto Prático de QA (Comunidade Galera do TI)
+# 🏥 Portfólio de QA — Clínica Médica
 
-Olá! Seja muito bem-vindo(a) ao meu repositório do projeto de QA o qual estou integrando. 
+> Casos de teste em **BDD (Gherkin)**, evidências de execução e gestão ágil no **ClickUp**, produzidos como **QA Aprendiz** no projeto colaborativo da **Comunidade Galera do TI**.
 
-Este repositório faz parte de uma iniciativa incrível da **Comunidade Galera do TI**, um projeto colaborativo hands-on coordenado pelo QA **Gabriel Marques**, com ajuda de outros integrantes da comunidade. O Gabriel estruturou toda a base técnica (backend e frontend), definiu as regras de negócio e está nos mentorando, ensinando na prática o dia a dia de um analista de qualidade.
+## 📌 Resumo
 
-Estou participando ativamente como **QA Aprendiz**, colocando a mão na massa com testes manuais, escrita de cenários, planejamento e mapeamento de qualidade, com o objetivo claro solidificar fundamentos de teste e evoluir para testes mais complexos, por exemplo automatizados! 🚀
+- **Sistema sob teste:** aplicação web hospedada de gestão de clínica médica — login, perfis (Administrador e Recepcionista), pacientes e especialidades. Código: [GaleradoTI/clinica-medica](https://github.com/GaleradoTI/clinica-medica).
+- **Abordagem:** testes manuais funcionais — positivos, negativos, limites (*edge*), regras de negócio e integridade de dados.
+- **Documentação:** um arquivo por caso de teste, com o cenário em Gherkin (pt-BR), resultado esperado × encontrado e as evidências (prints) no mesmo lugar.
+- **Gestão:** ClickUp compartilhado com o mentor e os outros aprendizes, com cards, subtarefas e dependências.
+- **Em estudo:** testes de API (Postman) e automação.
 
----
+## 📊 Cobertura atual
 
-## 🎯 Sobre o Projeto
-O sistema é uma aplicação web hospedada, voltada para a gestão de uma **Clínica Médica**, permitindo o controle de acessos, gerenciamento de usuários (administradores e recepcionistas) e o cadastro completo de pacientes com regras estritas de segurança e privacidade de dados clínicos.
+| Feature | CTs | ✅ Passou | 💡 Melhoria | ⏳ Pendente / ⚪ Não executado | 📝 A documentar |
+|---|:-:|:-:|:-:|:-:|:-:|
+| [Autenticação](features/autenticacao/) | 3 | 2 | – | 1 | – |
+| [Pacientes](features/pacientes/) | 6 | 5 | – | – | 1 |
+| [Especialidades](features/especialidades/) | 6 | 3 | 1 | 1 | 1 |
+| **Total** | **15** | **10** | **1** | **2** | **2** |
 
----
+**Melhoria sugerida:** [MEL-001](melhorias/MEL-001-avisar-ao-inativar-especialidade-com-medicos-vinculados.md) — avisar o usuário ao inativar uma especialidade que ainda tem médicos vinculados (origem: [CT-ESP-04](features/especialidades/cenarios/CT-ESP-04-impedir-remocao-de-especialidade-com-medicos-vinculados.md)).
 
-## 👥 Quem faz acontecer (Agradecimentos)
-Este aprendizado só está sendo possível graças à união e generosidade da nossa comunidade:
-* **Comunidade Galera do TI:** Por proporcionar esse ambiente colaborativo fantástico de troca de conhecimento entre desenvolvedores e QAs.
-* **Gabriel Marques (Professor e Coordenador):** Muito obrigado por dispor do seu tempo, paciência e conhecimento técnico para me guiar nessa jornada profissional.
+## 🗂️ Estrutura do repositório
 
----
+```text
+features/
+├── autenticacao/
+│   ├── README.md          # objetivo, regras e tabela de CTs com status
+│   ├── cenarios/          # um arquivo por caso de teste (CT-AUT-01-<slug>.md)
+│   └── evidencias/        # uma pasta por CT (CT-AUT-01/01-inicial.png)
+├── pacientes/             # mesma estrutura
+└── especialidades/        # mesma estrutura
+melhorias/                 # melhorias sugeridas (MEL-001)
+docs/
+└── convencoes.md          # IDs, status, padrão de evidências e de escrita
+templates/                 # modelos de caso de teste, defeito e melhoria
+```
 
-## 🛠️ Minhas Contribuições e Atividades (QA)
-Como QA aprendiz, estou participando de todo o ciclo de qualidade da feature de pacientes e dos módulos de suporte. 
-Minha rotina e entregas neste projeto incluem:
+Convenções (IDs, status, nomes de arquivo, como tirar os prints): [docs/convencoes.md](docs/convencoes.md).
 
-* **Mapeamento e Escrita de Cenários de Teste (BDD):** Criação de Casos de Teste (CTs) comportamentais utilizando a sintaxe *Given-When-Then* (Dado, Quando, Então) focados nas regras de negócio.
-* **Testes Manuais Funcionais (Positivos e Negativos):** Validação de fluxos de login, perfis de acesso, unicidade de dados (e-mail e CPF) e validação de campos obrigatórios.
-* **Análise de UI/UX e Usabilidade:** Avaliação de melhorias visuais, consistência de layout e acessibilidade nas telas do sistema.
-* **Gestão Ágil (ClickUp):** Organização do meu escopo de testes em um workspace compartilhado com o mentor e outros DEVs, utilizando subtarefas e dependências. *(Você pode acompanhar os detalhes dos meus cards e BDDs no ClickUp do projeto!)* ou também pela pasta BDDs situada neste repositório. 
-* **Evolução em Testes de API:** Estudos práticos sobre o funcionamento de APIs, ferramentas de mercado (como Postman) e os conhecimentos essenciais para testes de contrato e integração.
+## 🤝 Contexto
 
----
+Iniciativa da **Comunidade Galera do TI**: um projeto colaborativo *hands-on* coordenado pelo QA **Gabriel Marques**, que estruturou a base técnica (backend e frontend), definiu as regras de negócio e mentora o grupo. Participo como **QA Aprendiz** — testes manuais, escrita de cenários e planejamento da qualidade — para consolidar os fundamentos e evoluir para testes de API e automação.
 
-## 📂 Estrutura de Módulos Documentados
-Atualmente, a minha suíte de testes cobre os seguintes módulos do sistema:
-1. **Autenticação:** Validação de login com sucesso, bloqueio de credenciais inválidas e restrição de contas inativas.
-2. **Pacientes (Feature Principal):** Cadastro completo, obrigatoriedade de meios de contato, integridade de CPF, edição de dados, desativação segura e **restrição de acesso a dados clínicos** (garantindo que recepcionistas não visualizem prontuários médicos).
+## 🚀 Próximos passos
 
----
 
-## 🚀 Próximos Passos no Projeto
-Este README é um documento vivo e será atualizado conforme novas features forem liberadas pelo nosso coordenador. Meus próximos passos planejados são:
-* [ ] Execução contínua dos testes regressivos a cada nova entrega.
-* [ ] Acréscimo do leque de testes a ser realizados obedecendo a lógica e requisitos de negócios e sua aplicabilidade.
-* [ ] Início dos estudos e implementação de **Testes Automatizados** para esta aplicação.
+- [ ] Executar os CTs pendentes (CT-AUT-03, CT-ESP-03)
+- [ ] Cenários de restrição de acesso a dados clínicos (perfil Recepcionista)
+- [ ] Cenários para os módulos Médicos e Usuários
+- [ ] Regressão a cada nova entrega
+- [ ] Testes de API com Postman
+- [ ] Automação dos cenários mais estáveis
 
----
-*Desenvolvido com 💜 e muita vontade de aprender pela comunidade Galera do TI.*
+## 🙏 Agradecimentos
+
+À **Comunidade Galera do TI** pelo ambiente colaborativo e ao **Gabriel Marques** pelo tempo, pela paciência e pelo conhecimento técnico na mentoria.
